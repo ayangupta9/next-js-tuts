@@ -2,8 +2,17 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import { useRouter } from 'next/dist/client/router'
 
 export default function Home () {
+  const router = useRouter()
+
+  const handleClick = () => {
+    console.log('Placing order')
+    router.push('/product')
+    // router.replace('/product')
+  }
+
   return (
     <div>
       <h1>Home Page</h1>
@@ -20,6 +29,8 @@ export default function Home () {
           </Link>
         </li>
       </ul>
+
+      <button onClick={handleClick}>Place Order</button>
     </div>
   )
 }
